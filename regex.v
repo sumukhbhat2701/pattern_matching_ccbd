@@ -23,26 +23,11 @@ module zero_bar_one (input wire clk, reset, i, input wire i_c, output wire o);
    char_one char_one_0 (clk, reset, o2, i_c, i2);
 endmodule
 
-// (1|0)*
-module zero_bar_one_star (input wire clk, reset, i, input wire i_c, output wire o);
-   wire i1, o1;
-   star star_0 (i, o, i1, o1);
-   zero_bar_one zero_bar_one_1 (clk, reset, o1, i_c, i1);
-endmodule
-
-// (1|0)* . 1
-module zero_bar_one_star_dot_one(input wire clk, reset, i, input wire i_c, output wire o);
-   wire i1, i2, o1, o2;
-   dot dot_0 (i, o, i1, i2, o1, o2);
-   zero_bar_one_star zero_bar_one_star_1 (clk, reset, o1, i_c, i1);
-   char_one char_one_0 (clk, reset, o2, i_c, i2); 
-endmodule
-
 // (1|0)* . 1 . (1|0)
 module zero_bar_one_star_dot_one_dot_zero_bar_one_once(input wire clk, reset, i, input wire i_c, output wire o);
    wire i1, i2, o1, o2;
    dot dot_0 (i, o, i1, i2, o1, o2);
-   zero_bar_one_star_dot_one zero_bar_one_star_dot_one_0(clk, reset, o1, i_c, i1);
+   char_one char_one_0 (clk, reset, o1, i_c, i1);
    zero_bar_one zero_bar_one_0(clk, reset, o2, i_c, i2);
 endmodule
 
@@ -200,5 +185,5 @@ endmodule
 
 // main
 module regex (input wire clk, reset, i, input wire i_c, output wire o);
-   zero_bar_one_star_dot_one_dot_zero_bar_one_twenty_times my_regex(clk, reset, i, i_c, o);   
+  zero_bar_one_star_dot_one_dot_zero_bar_one_twenty_times my_regex(clk, reset, i, i_c, o);  
 endmodule
