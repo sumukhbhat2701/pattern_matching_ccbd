@@ -1,3 +1,6 @@
+#### Logic for matching the regex (1|0)* . 1 . (1|0){20}
+![final_circuit](https://github.com/sumukhbhat2701/pattern_matching_ccbd/blob/master/circuit.png)
+
 #### Installation:
 <br/>
 $ sudo apt install iverilog gtkwave
